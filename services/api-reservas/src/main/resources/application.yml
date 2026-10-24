@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-reservas
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/reservas}
+    username: ${SPRING_DATASOURCE_USERNAME:hba_admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:hba_local_pwd}
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+aws:
+  region: ${AWS_REGION:us-east-1}
+  sqs:
+    endpoint: ${SQS_ENDPOINT:http://localhost:9324}
+    queue-reservas: ${SQS_QUEUE_RESERVAS:q-reservas}
+
+logging:
+  level:
+    pe.edu.hba: INFO
+    software.amazon.awssdk: WARN
+    org.hibernate.SQL: INFO
