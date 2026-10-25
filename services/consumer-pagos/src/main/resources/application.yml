@@ -1,0 +1,43 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: consumer-pagos
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/reservas
+    username: hba_admin
+    password: hba_local_pwd
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+# Configuración de Spring Cloud AWS para apuntar a ElasticMQ local
+spring.cloud.aws:
+  region:
+    static: us-east-1
+  credentials:
+    access-key: local
+    secret-key: local
+  sqs:
+    endpoint: http://localhost:9324
+
+# Variables propias del negocio
+app:
+  sqs:
+    queue-entrada: q-reservas
+    queue-salida: q-notificaciones
+  pago:
+    latencia-ms: 2000      # Simula 2 segundos de demora en la pasarela
+    fallo-porcentaje: 0    # 0 = siempre exitoso. Cambiar a 100 para simular caída.
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
