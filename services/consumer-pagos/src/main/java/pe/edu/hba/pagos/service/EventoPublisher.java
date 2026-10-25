@@ -1,4 +1,4 @@
-package main.java.pe.edu.hba.pagos.service;
+package pe.edu.hba.pagos.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;

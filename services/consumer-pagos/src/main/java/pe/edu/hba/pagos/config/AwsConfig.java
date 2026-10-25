@@ -1,4 +1,4 @@
-package main.java.pe.edu.hba.pagos.config;
+package pe.edu.hba.pagos.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

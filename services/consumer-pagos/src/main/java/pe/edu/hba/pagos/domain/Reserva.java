@@ -1,4 +1,4 @@
-package main.java.pe.edu.hba.pagos.domain;
+package pe.edu.hba.pagos.domain;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;

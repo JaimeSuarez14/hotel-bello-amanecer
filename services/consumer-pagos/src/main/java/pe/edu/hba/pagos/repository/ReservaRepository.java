@@ -1,4 +1,4 @@
-package main.java.pe.edu.hba.pagos.repository;
+package pe.edu.hba.pagos.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import pe.edu.hba.pagos.domain.Reserva;

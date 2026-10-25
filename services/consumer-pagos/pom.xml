@@ -29,7 +29,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<aws.sdk.version>2.28.0</aws.sdk.version>
-		<spring-cloud-aws.version>3.2.0</spring-cloud-aws.version>
+		<spring-cloud-aws.version>4.0.2</spring-cloud-aws.version>
 
 	</properties>
 	<dependencyManagement>
@@ -44,7 +44,7 @@
         <dependency>
             <groupId>io.awspring.cloud</groupId>
             <artifactId>spring-cloud-aws-dependencies</artifactId>
-            <version>3.2.0</version> <!-- Versión compatible con Spring Boot 3.x/4.x -->
+            <version>${spring-cloud-aws.version}</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -94,13 +94,23 @@
 			<scope>test</scope>
 		</dependency>
  <dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>sqs</artifactId>
-		</dependency>
-		<dependency>
     <groupId>io.awspring.cloud</groupId>
     <artifactId>spring-cloud-aws-starter-sqs</artifactId>
 </dependency>
+<!-- Opcional, pero recomendado si usas SqsTemplate para enviar mensajes -->
+<dependency>
+    <groupId>io.awspring.cloud</groupId>
+    <artifactId>spring-cloud-aws-starter</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.datatype</groupId>
+    <artifactId>jackson-datatype-jsr310</artifactId>
+</dependency>
+
 	</dependencies>
 
 	<build>
